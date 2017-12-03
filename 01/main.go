@@ -13,24 +13,33 @@ func main() {
 
 	scanner.Split(bufio.ScanRunes)
 
+	count := 0
+	var first int
 	var previous int
+	var current int
 	var sum int
 
 	for scanner.Scan() {
-		
 		number,_ := strconv.Atoi(scanner.Text())
-		fmt.Println("current number %s", number)
 
-		current := number
+		if count == 0 {
+			first = number
+			count++
+		}
+
+		current = number
 
 		if current == previous {
 			sum = sum + current
 		}
 
-		fmt.Println("Old previous %s", previous)
 		previous = current
-		fmt.Println("New previous %s", previous)
-		fmt.Println(sum)
 	}
+
+	if first == current {
+		sum = sum + current
+	}
+	
+	fmt.Println(sum)
 
 }
