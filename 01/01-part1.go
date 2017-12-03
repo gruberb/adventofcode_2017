@@ -20,7 +20,7 @@ func main() {
 	var sum int
 
 	for scanner.Scan() {
-		number,_ := strconv.Atoi(scanner.Text())
+		number, _ := strconv.Atoi(scanner.Text())
 
 		if count == 0 {
 			first = number
@@ -39,7 +39,7 @@ func main() {
 	if first == current {
 		sum = sum + current
 	}
-	
+
 	fmt.Println(sum)
 
 }
